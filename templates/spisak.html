@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h1>Spisak</h1>
+    <table>
+        <thead>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Sport</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for spisak in spisak %}
+                <tr>
+                    <td> {{  spisak.ime }} </td>
+                    <td> {{  spisak.prezime }} </td>
+                    <td> {{  spisak.sport }} </td>
+                    <td>
+                        <form action="/izbrisi" method="post">
+                            <input name="id" type="hidden" value="{{ spisak.id }}">
+                            <input type="submit" value="Izbrisi">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

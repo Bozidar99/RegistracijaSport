@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <img alt="Logo" src="/static/sport academy.png">
+    <h1>Registracija</h1>
+
+    <form action="/registar" method="post">
+        <div>
+            <input autocomplete="off" autofocus="ime" name="ime" placeholder="ime" type="text"><br>
+
+            <input autocomplete="off" autofocus="prezime" name="prezime" placeholder="prezime" type="text"><br>
+            
+            {% for sport in sport %}
+                <input name="sport" type="radio" value="{{ sport }}">{{ sport }}<br>
+            {% endfor %}
+        </div>
+        <div>
+
+            <input type="submit" value="Registar">
+
+        </div>
+
+    </form>
+
+{% endblock %}
